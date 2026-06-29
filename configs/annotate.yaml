@@ -1,0 +1,45 @@
+dataset:
+  root: "./data/lerobot_dataset"
+  main_video_key: "observation.images.head"
+  fallback_main_video_keys:
+    - "observation.images.head"
+    - "observation.images.main"
+    - "observation.images.base"
+    - "observation.images.front"
+    - "observation.images.top"
+  output_dir: "./outputs/subtask_annotation"
+
+task:
+  main_task: "Take the shoe out of the shoebox, open the shoe tongue, remove and reinsert the insole, then place the shoe into the shoebox."
+
+workflow:
+  teacher_qwen:
+    provider: "dashscope"
+    model: "qwen3-vl-plus"
+    api_key_env: "DASHSCOPE_API_KEY"
+    fps_for_global: 1.0
+    fps_for_refine: 3.0
+    video_width: 640
+    timeout_sec: 180
+
+  student_qwen:
+    # Default keeps the workflow runnable with DashScope. For local 7B, switch
+    # provider/model/base_url to the openai_compatible example below.
+    provider: "dashscope"
+    model: "qwen3-vl-flash"
+    api_key_env: "DASHSCOPE_API_KEY"
+    fps_for_global: 1.0
+    fps_for_refine: 3.0
+    video_width: 320
+    timeout_sec: 180
+
+    # Local 7B example:
+    # provider: "openai_compatible"
+    # model: "Qwen/Qwen2.5-VL-7B-Instruct"
+    # base_url: "http://127.0.0.1:8000/v1"
+    # api_key_env: "LOCAL_OPENAI_API_KEY"
+
+annotation:
+  enable_boundary_refine: true
+  refine_window_sec: 5.0
+  min_segment_sec: 1.0

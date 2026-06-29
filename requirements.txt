@@ -1,0 +1,9 @@
+dashscope
+huggingface-hub
+matplotlib
+opencv-python
+pandas
+pillow
+pyarrow
+pyyaml
+requests

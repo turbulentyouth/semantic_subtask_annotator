@@ -1,0 +1,146 @@
+dataset:
+  root: "./data/lerobot_dataset"
+  fps: null
+  main_video_key: "observation.images.head"
+  fallback_main_video_keys:
+    - "observation.images.head"
+    - "observation.images.main"
+    - "observation.images.base"
+    - "observation.images.front"
+    - "observation.images.top"
+  output_dir: "./outputs/subtask_annotations2"
+
+task:
+  main_task: "Take the shoe out of the shoebox, open the shoe tongue, remove and reinsert the insole, then place the shoe into the shoebox. This is done four times across two shoes and two shoeboxes: first from right to left, then from left to right."
+  subtasks:
+    - name: "right_to_left_shoe_1_take_shoe_out"
+      description: "第一次右到左流程：从右侧鞋盒中取出第一只鞋"
+      visual_start: "机械臂开始接近右侧鞋盒内的第一只鞋"
+      visual_end: "第一只鞋已经离开右侧鞋盒，并被移动到操作区域"
+    - name: "right_to_left_shoe_1_open_tongue"
+      description: "第一次右到左流程：打开第一只鞋的鞋舌以露出鞋垫"
+      visual_start: "机械臂开始拨开或抬起第一只鞋的鞋舌"
+      visual_end: "鞋舌已打开，鞋垫入口清晰可见"
+    - name: "right_to_left_shoe_1_remove_insole"
+      description: "第一次右到左流程：从第一只鞋中取出鞋垫"
+      visual_start: "机械臂开始夹取或拉出第一只鞋内的鞋垫"
+      visual_end: "鞋垫已经从第一只鞋中被取出"
+    - name: "right_to_left_shoe_1_reinsert_insole"
+      description: "第一次右到左流程：把鞋垫重新放回第一只鞋"
+      visual_start: "机械臂开始将鞋垫对准第一只鞋内部"
+      visual_end: "鞋垫已重新插入第一只鞋内"
+    - name: "right_to_left_shoe_1_place_shoe_in_box"
+      description: "第一次右到左流程：将第一只鞋放入左侧鞋盒"
+      visual_start: "机械臂开始携带第一只鞋向左侧鞋盒移动"
+      visual_end: "第一只鞋已经放入左侧鞋盒"
+    - name: "right_to_left_shoe_2_take_shoe_out"
+      description: "第二次右到左流程：从右侧鞋盒中取出第二只鞋"
+      visual_start: "机械臂开始接近右侧鞋盒内的第二只鞋"
+      visual_end: "第二只鞋已经离开右侧鞋盒，并被移动到操作区域"
+    - name: "right_to_left_shoe_2_open_tongue"
+      description: "第二次右到左流程：打开第二只鞋的鞋舌以露出鞋垫"
+      visual_start: "机械臂开始拨开或抬起第二只鞋的鞋舌"
+      visual_end: "鞋舌已打开，鞋垫入口清晰可见"
+    - name: "right_to_left_shoe_2_remove_insole"
+      description: "第二次右到左流程：从第二只鞋中取出鞋垫"
+      visual_start: "机械臂开始夹取或拉出第二只鞋内的鞋垫"
+      visual_end: "鞋垫已经从第二只鞋中被取出"
+    - name: "right_to_left_shoe_2_reinsert_insole"
+      description: "第二次右到左流程：把鞋垫重新放回第二只鞋"
+      visual_start: "机械臂开始将鞋垫对准第二只鞋内部"
+      visual_end: "鞋垫已重新插入第二只鞋内"
+    - name: "right_to_left_shoe_2_place_shoe_in_box"
+      description: "第二次右到左流程：将第二只鞋放入左侧鞋盒"
+      visual_start: "机械臂开始携带第二只鞋向左侧鞋盒移动"
+      visual_end: "第二只鞋已经放入左侧鞋盒"
+    - name: "left_to_right_shoe_1_take_shoe_out"
+      description: "第一次左到右流程：从左侧鞋盒中取出第一只鞋"
+      visual_start: "机械臂开始接近左侧鞋盒内的第一只鞋"
+      visual_end: "第一只鞋已经离开左侧鞋盒，并被移动到操作区域"
+    - name: "left_to_right_shoe_1_open_tongue"
+      description: "第一次左到右流程：打开第一只鞋的鞋舌以露出鞋垫"
+      visual_start: "机械臂开始拨开或抬起第一只鞋的鞋舌"
+      visual_end: "鞋舌已打开，鞋垫入口清晰可见"
+    - name: "left_to_right_shoe_1_remove_insole"
+      description: "第一次左到右流程：从第一只鞋中取出鞋垫"
+      visual_start: "机械臂开始夹取或拉出第一只鞋内的鞋垫"
+      visual_end: "鞋垫已经从第一只鞋中被取出"
+    - name: "left_to_right_shoe_1_reinsert_insole"
+      description: "第一次左到右流程：把鞋垫重新放回第一只鞋"
+      visual_start: "机械臂开始将鞋垫对准第一只鞋内部"
+      visual_end: "鞋垫已重新插入第一只鞋内"
+    - name: "left_to_right_shoe_1_place_shoe_in_box"
+      description: "第一次左到右流程：将第一只鞋放入右侧鞋盒"
+      visual_start: "机械臂开始携带第一只鞋向右侧鞋盒移动"
+      visual_end: "第一只鞋已经放入右侧鞋盒"
+    - name: "left_to_right_shoe_2_take_shoe_out"
+      description: "第二次左到右流程：从左侧鞋盒中取出第二只鞋"
+      visual_start: "机械臂开始接近左侧鞋盒内的第二只鞋"
+      visual_end: "第二只鞋已经离开左侧鞋盒，并被移动到操作区域"
+    - name: "left_to_right_shoe_2_open_tongue"
+      description: "第二次左到右流程：打开第二只鞋的鞋舌以露出鞋垫"
+      visual_start: "机械臂开始拨开或抬起第二只鞋的鞋舌"
+      visual_end: "鞋舌已打开，鞋垫入口清晰可见"
+    - name: "left_to_right_shoe_2_remove_insole"
+      description: "第二次左到右流程：从第二只鞋中取出鞋垫"
+      visual_start: "机械臂开始夹取或拉出第二只鞋内的鞋垫"
+      visual_end: "鞋垫已经从第二只鞋中被取出"
+    - name: "left_to_right_shoe_2_reinsert_insole"
+      description: "第二次左到右流程：把鞋垫重新放回第二只鞋"
+      visual_start: "机械臂开始将鞋垫对准第二只鞋内部"
+      visual_end: "鞋垫已重新插入第二只鞋内"
+    - name: "left_to_right_shoe_2_place_shoe_in_box"
+      description: "第二次左到右流程：将第二只鞋放入右侧鞋盒并结束 episode"
+      visual_start: "机械臂开始携带第二只鞋向右侧鞋盒移动"
+      visual_end: "第二只鞋已经放入右侧鞋盒，episode 结束"
+
+qwen:
+  provider: "dashscope"
+  model: "qwen3-vl-plus"
+  api_key_env: "DASHSCOPE_API_KEY"
+  base_url: ""
+  fps_for_global: 1.0
+  fps_for_refine: 3.0
+  video_width: 640
+  temperature: 0.0
+  max_retries: 3
+  timeout_sec: 180
+
+workflow:
+  teacher_qwen:
+    provider: "dashscope"
+    model: "qwen3-vl-plus"
+    api_key_env: "DASHSCOPE_API_KEY"
+    base_url: ""
+    fps_for_global: 1.0
+    fps_for_refine: 3.0
+    video_width: 640
+    temperature: 0.0
+    max_retries: 3
+    timeout_sec: 180
+  student_qwen:
+    provider: "dashscope"
+    model: "qwen3-vl-plus"
+    api_key_env: "DASHSCOPE_API_KEY"
+    base_url: ""
+    fps_for_global: 1.0
+    fps_for_refine: 3.0
+    video_width: 640
+    temperature: 0.0
+    max_retries: 3
+    timeout_sec: 180
+    # For a local 7B VL model served by vLLM/SGLang, use:
+    # provider: "openai_compatible"
+    # model: "Qwen/Qwen2.5-VL-7B-Instruct"
+    # api_key_env: "LOCAL_OPENAI_API_KEY"
+    # base_url: "http://127.0.0.1:8000/v1"
+
+annotation:
+  enable_boundary_refine: true
+  refine_window_sec: 5.0
+  min_segment_sec: 1.0
+  force_subtask_order: true
+  require_all_subtasks_once: true
+  save_debug_frames: true
+  save_timeline_plot: true
+  write_lerobot_subtask_index: false
