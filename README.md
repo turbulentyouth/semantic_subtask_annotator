@@ -125,18 +125,6 @@ python scripts/download_dataset.py --url https://example.com/dataset.zip
 
 Use `--output-dir /path/to/dataset` if you want a different location, then update `dataset.root` in `configs/annotate.yaml`.
 
-## Qwen Smoke Test
-
-If you already configured the API key and want to test one local video with one text prompt:
-
-```bash
-python scripts/test_qwen_video.py \
-  --video /path/to/video.mp4 \
-  --text "请简要描述这个视频中的机器人在做什么。"
-```
-
-Optional arguments include `--model`, `--fps`, `--timeout-sec`, and `--output outputs/qwen_test_response.txt`.
-
 ## Configure The Main Camera
 
 Edit `configs/annotate.yaml`.
@@ -228,7 +216,7 @@ python3 scripts/annotate_subtasks.py --config configs/annotate.yaml --episode-in
 
 In discovery mode, each segment includes the generated `subtask`, `description`, `start_signal`, and `end_signal` fields. `task.main_task` is still used as optional context when present; `task.subtasks` may be omitted or left empty.
 
-Disable boundary refinement for a faster smoke test:
+Disable boundary refinement for a faster single-episode run:
 
 ```bash
 python3 scripts/annotate_subtasks.py --config configs/annotate.yaml --episode-index 0 --no-refine

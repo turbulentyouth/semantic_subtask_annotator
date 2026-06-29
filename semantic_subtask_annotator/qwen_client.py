@@ -41,10 +41,6 @@ class QwenClient:
             self._write_error(f"{request_name}_json_parse_error.txt", raw)
             raise QwenClientError(f"Qwen response was not valid JSON for {request_name}: {exc}") from exc
 
-    def generate_text(self, video_path: Path, prompt: str, *, fps: float, request_name: str = "qwen_video_test") -> str:
-        """Call Qwen with one local video and one text prompt, returning raw model text."""
-        return self._call_with_retries(video_path, prompt, fps=fps, request_name=request_name)
-
     def _call_with_retries(self, video_path: Path, prompt: str, *, fps: float, request_name: str) -> str:
         last_error: Exception | None = None
         for attempt in range(1, self.config.max_retries + 1):
